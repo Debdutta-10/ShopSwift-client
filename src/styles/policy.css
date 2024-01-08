@@ -1,0 +1,50 @@
+.policy-container {
+    display: flex;
+  }
+  .policy-image img {
+    width: 100%;
+    margin-top: 10%;
+  }
+  
+  .policy-text {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .policy-text h2 {
+    font-size: 1.5em;
+  }
+  
+  .policy-text p {
+    color: #707070;
+    margin-bottom: 15px;
+  }
+  
+  .policy-text ol {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .policy-text li {
+    margin-bottom: 15px;
+  }
+  
+  .policy-text h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  @media only screen and (max-width: 782px){
+    .policy-container{
+        flex-direction: column;
+    }
+    .policy-image img{
+        display: block;
+        margin: auto;
+    }
+    .policy-text{
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}

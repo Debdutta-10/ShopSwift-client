@@ -1,0 +1,7 @@
+.navbar{
+    padding: 10px;
+}
+.nav-link,.navbar-brand{
+    color: white !important;
+    font-size: 1.2rem;
+}
