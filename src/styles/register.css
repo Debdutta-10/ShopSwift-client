@@ -1,0 +1,17 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register-form{
+    margin-top: 3%;
+    width: 40%;
+}
+
+@media only screen and (max-width: 782px){
+    .register-form{
+        margin-top: 20%;
+        width: 70%;
+    }
+}
