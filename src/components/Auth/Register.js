@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import '../../styles/register.css';
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -7,10 +11,24 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, email, phone, address);
+        try{
+            const res = await axios.post('http://localhost:8000/api/v1/auth/register',{name,email,phone,address,password});
+            if(res.data.success){
+                toast.success(res.data.message);
+                navigate('/login')
+            }else{
+                toast.error(res.data.message);
+            }
+
+
+        }catch(error){
+            console.log(error);
+            toast.error("Something went Wrong");
+        }
     }
 
     return (
@@ -20,12 +38,11 @@ const Register = () => {
                     <h2 style={{textAlign:"center"}}>Register</h2>
                     {/* Name Input */}
                     <div className="form-group  my-3">
-                        <label htmlFor="exampleInputName">Name</label>
                         <input
                             type="text"
                             value={name}
                             required
-                            className="form-control"
+                            className="form-control reg-input"
                             id="exampleInputName"
                             placeholder="Enter your name"
                             onChange={(e) => {
@@ -35,12 +52,11 @@ const Register = () => {
 
                     {/* Email Input */}
                     <div className="form-group my-3">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
                         <input
                             type="email"
                             value={email}
                             required
-                            className="form-control"
+                            className="form-control reg-input"
                             id="exampleInputEmail1"
                             aria-describedby="emailHelp"
                             placeholder="Enter email"
@@ -51,12 +67,11 @@ const Register = () => {
 
                     {/* Phone Input */}
                     <div className="form-group my-3">
-                        <label htmlFor="exampleInputPhone">Phone</label>
                         <input
                             type="text"
                             value={phone}
                             required
-                            className="form-control"
+                            className="form-control reg-input"
                             id="exampleInputPhone"
                             placeholder="Enter your phone number"
                             onChange={(e) => {
@@ -66,12 +81,11 @@ const Register = () => {
 
                     {/* Address Input */}
                     <div className="form-group my-3">
-                        <label htmlFor="exampleInputAddress">Address</label>
                         <input
                             type="text"
                             value={address}
                             required
-                            className="form-control"
+                            className="form-control reg-input"
                             id="exampleInputAddress"
                             placeholder="Enter your address"
                             onChange={(e) => {
@@ -81,12 +95,11 @@ const Register = () => {
 
                     {/* Password Input */}
                     <div className="form-group my-3">
-                        <label htmlFor="exampleInputPassword1">Password</label>
                         <input
                             type="password"
                             required
                             value={password}
-                            className="form-control"
+                            className="form-control reg-input"
                             id="exampleInputPassword1"
                             placeholder="Password"
                             onChange={(e) => {
@@ -95,7 +108,7 @@ const Register = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <button type="submit" className="btn btn-primary my-2">
+                    <button type="submit" className="btn register-button my-2">
                         Submit
                     </button>
                 </form>

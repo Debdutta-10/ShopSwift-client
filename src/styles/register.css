@@ -6,7 +6,34 @@
 }
 .register-form{
     margin-top: 3%;
+    width: 35%;
+    box-shadow: 0 0 10px black;
+    padding: 30px;
+}
+.register-button{
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 0px;
     width: 40%;
+}
+
+.register-button:hover{
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+    width: 40%;
+    transform: scale(1.1);
+}
+.reg-input{
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 @media only screen and (max-width: 782px){
