@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useAuth } from '../context/auth'
 const Homepage = () => {
+  const [auth,setAuth] = useAuth();
   return (
-<>
-Homepage
-</>
+    <>
+      Homepage
+      <pre>{JSON.stringify(auth,null,4)}</pre>
+    </>
   )
 }
 

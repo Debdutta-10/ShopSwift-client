@@ -3,8 +3,23 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping } from 'react-icons/fa6';
 import '../styles/header.css';
+import { useAuth } from '../context/auth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
+  const [auth, setAuth] = useAuth();
+
+  const handleLogout=()=>{
+    setAuth({
+      ...auth,
+      user:null,
+      token:"",
+    })
+    localStorage.removeItem('auth');
+    toast.success("Logged Out Successfully");
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" style={{ background: "#002244", color: "white" }}>
       <div className="container-fluid">
@@ -32,12 +47,19 @@ const Header = () => {
                 <li><NavLink className="dropdown-item" exact to="/policy">Policy</NavLink></li>
               </ul>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register">Register</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">Login</NavLink>
-            </li>
+            {
+              !auth.user ? (<>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/register">Register</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login">Login</NavLink>
+                </li></>) : (<>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login" onClick={handleLogout}>Logout</NavLink>
+                  </li></>)
+            }
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/cart">Cart (0)</NavLink>
             </li>
