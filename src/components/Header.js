@@ -10,11 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
   const [auth, setAuth] = useAuth();
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
     setAuth({
       ...auth,
-      user:null,
-      token:"",
+      user: null,
+      token: "",
     })
     localStorage.removeItem('auth');
     toast.success("Logged Out Successfully");
@@ -55,8 +55,18 @@ const Header = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/login">Login</NavLink>
                 </li></>) : (<>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/login" onClick={handleLogout}>Logout</NavLink>
+                  <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      User
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><NavLink className="dropdown-item" to="/dashboard">DashBoard</NavLink></li>
+                      <li><hr className="dropdown-divider" /></li>
+                      <li><NavLink className="dropdown-item" to="/login" onClick={handleLogout}>Logout</NavLink></li>
+                    </ul>
+                  </li>
+                  <li>
+
                   </li></>)
             }
 

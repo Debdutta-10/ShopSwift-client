@@ -3,34 +3,25 @@ import '../../styles/register.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
-import { useNavigate,useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/auth.js'
+import { useNavigate} from 'react-router-dom';
 
-const Login = () => {
+
+const ForgotPassword = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [auth,setAuth] = useAuth();
+    const [newPassword, setNewPassword] = useState("");
+    const [answer, setAnswer] = useState("");
     const navigate = useNavigate();
-    const location = useLocation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:8000/api/v1/auth/login', { email, password });
+            const res = await axios.post('http://localhost:8000/api/v1/auth/forgot-password', { email, newPassword, answer });
             if (res.data.success) {
                 toast.success(res.data.message);
-                setAuth({
-                    ...auth,
-                    user: res.data.user,
-                    token: res.data.token
-
-                })
-                localStorage.setItem("auth",JSON.stringify(res.data));
-                navigate(location.state||'/')
+                navigate('/login')
             } else {
                 toast.error(res.data.message);
             }
-
 
         } catch (error) {
             console.log(error);
@@ -41,9 +32,8 @@ const Login = () => {
         <>
             <div className="form-container">
                 <form className='register-form' onSubmit={handleSubmit}>
-                    <h2 style={{ textAlign: "center" }}>Login</h2>
+                    <h2 style={{ textAlign: "center" }}>Reset Password</h2>
 
-                    {/* Email Input */}
                     <div className="form-group my-4">
                         <input
                             type="email"
@@ -58,26 +48,38 @@ const Login = () => {
                             }} />
                     </div>
 
-                    {/* Password Input */}
+
+                    <div className="form-group my-4">
+                        <input
+                            type="text"
+                            value={answer}
+                            required
+                            className="form-control reg-input"
+                            id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter your Favourite Food"
+                            onChange={(e) => {
+                                setAnswer(e.target.value);
+                            }} />
+                    </div>
+
+
                     <div className="form-group my-4">
                         <input
                             type="password"
                             required
-                            value={password}
+                            value={newPassword}
                             className="form-control reg-input"
                             id="exampleInputPassword1"
-                            placeholder="Password"
+                            placeholder="Enter New Password"
                             onChange={(e) => {
-                                setPassword(e.target.value);
+                                setNewPassword(e.target.value);
                             }} />
                     </div>
 
-                    {/* Submit Button */}
+
                     <button type="submit" className="btn register-button my-2">
-                        Login
-                    </button>
-                    <button type="button" className="btn register-button my-2" onClick={()=>{navigate('/forgot-password')}}>
-                        Forgot Password
+                        Reset
                     </button>
                 </form>
             </div>
@@ -85,4 +87,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default ForgotPassword

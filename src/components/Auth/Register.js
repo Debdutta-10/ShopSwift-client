@@ -11,12 +11,13 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
+    const [answer, setAnswer] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await axios.post('http://localhost:8000/api/v1/auth/register',{name,email,phone,address,password});
+            const res = await axios.post('http://localhost:8000/api/v1/auth/register',{name,email,phone,address,password,answer});
             if(res.data.success){
                 toast.success(res.data.message);
                 navigate('/login')
@@ -90,6 +91,20 @@ const Register = () => {
                             placeholder="Enter your address"
                             onChange={(e) => {
                                 setAddress(e.target.value);
+                            }} />
+                    </div>
+
+                    {/* Answer Input */}
+                    <div className="form-group my-3">
+                        <input
+                            type="text"
+                            value={answer}
+                            required
+                            className="form-control reg-input"
+                            id="exampleInputAddress"
+                            placeholder="Your Favourite Food"
+                            onChange={(e) => {
+                                setAnswer(e.target.value);
                             }} />
                     </div>
 
