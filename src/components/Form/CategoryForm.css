@@ -1,0 +1,15 @@
+.mob-form-container{
+    width: 75%;
+}
+@media only screen and (max-width: 600px) {
+    .mob-form-container{
+        width: 100%;
+    }
+    .mob-form-container h2{
+        margin-top: 10px;
+        text-align: center;
+    }
+    .mob-form{
+        width: 100%;
+    }
+}

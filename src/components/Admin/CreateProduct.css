@@ -1,0 +1,10 @@
+@media only screen and (max-width: 600px) {
+    .mob-input{
+        width: 100% !important;
+    }
+    .mob-heading{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+}
