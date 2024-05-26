@@ -23,6 +23,8 @@ import CreateProduct from './components/Admin/CreateProduct';
 import ShowUsers from './components/Admin/ShowUsers';
 import Profile from './components/User/Profile';
 import Orders from './components/User/Orders';
+import Products from './components/Admin/Products';
+import UpdateProduct from './components/Admin/UpdateProduct';
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
             <Route path='admin' element={<AdminDashboard></AdminDashboard>}></Route>
             <Route path='admin/create-categories' element={<CreateCategory></CreateCategory>}></Route>
             <Route path='admin/create-products' element={<CreateProduct></CreateProduct>}></Route>
+            <Route path='admin/product/:slug' element={<UpdateProduct></UpdateProduct>}></Route>
+            <Route path='admin/products' element={<Products></Products>}></Route>
             <Route path='admin/show-users' element={<ShowUsers></ShowUsers>}></Route>
           </Route>
           <Route path="/about" element={<About />} />
