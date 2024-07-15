@@ -6,10 +6,12 @@ import '../styles/header.css';
 import { useAuth } from '../context/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchInput from './Form/SearchInput';
+import {useCart} from '../context/cart'
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
-
+  const [cart] = useCart();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -24,6 +26,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-dark" style={{ background: "#002244", color: "white" }}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">ShopSwift <FaCartShopping /></Link>
+        {/* <SearchInput></SearchInput> */}
         <button className="navbar-toggler" style={{ color: "white", fontSize: "1.2rem" }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" ></span>
         </button>
@@ -33,7 +36,7 @@ const Header = () => {
               <NavLink className="nav-link" exact to="/">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" exact to="/category">Category</NavLink>
+              {/* <NavLink className="nav-link" exact to="/category">Category</NavLink> */}
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +74,7 @@ const Header = () => {
             }
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/cart">Cart (0)</NavLink>
+              <NavLink className="nav-link" to="/cart">Cart ({cart?.length})</NavLink>
             </li>
           </ul>
         </div>

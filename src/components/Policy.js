@@ -36,10 +36,6 @@ const Policy = () => {
                             </p>
                         </li>
                     </ol>
-
-                    <p>
-                        By shopping with ShopSwift, you are not just a customer; you are part of a community that values innovation, convenience, and style. Thank you for choosing us as your premier e-commerce destination. Happy shopping!
-                    </p>
                 </div>
             </div>
         </>

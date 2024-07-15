@@ -25,6 +25,9 @@ import Profile from './components/User/Profile';
 import Orders from './components/User/Orders';
 import Products from './components/Admin/Products';
 import UpdateProduct from './components/Admin/UpdateProduct';
+import Search from './components/Search,';
+import ProductDetails from './components/ProductDetails';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -35,6 +38,8 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          {/* <Route path='/search' element={<Search></Search>}></Route>         */}
+   
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword></ForgotPassword>} />
@@ -51,6 +56,8 @@ function App() {
             <Route path='admin/products' element={<Products></Products>}></Route>
             <Route path='admin/show-users' element={<ShowUsers></ShowUsers>}></Route>
           </Route>
+          <Route path='/product/:slug' element={<ProductDetails></ProductDetails>}></Route>     
+          <Route path='/cart' element={<Cart></Cart>}></Route>     
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policy" element={<Policy />} />

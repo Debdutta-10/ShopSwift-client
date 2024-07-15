@@ -2,3 +2,14 @@
     text-decoration: none !important;
     color: black !important;
 }
+.mob-homepage{
+    @media screen and (max-width: 712px) {
+        .mob-homepage{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

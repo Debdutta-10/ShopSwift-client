@@ -1,0 +1,148 @@
+.contact__container {
+    display: grid;
+    grid-template-columns: 4fr 8fr; /* Adjusted grid columns */
+}
+
+.contact__title {
+    font-size: 2rem; /* Adjusted font size */
+    font-weight: 600; /* Adjusted font weight */
+    margin-bottom: 1rem;
+}
+
+.contact__description {
+    font-size: 1rem; /* Adjusted font size */
+    line-height: 1.6;
+}
+
+.contact__description,
+.contact__info,
+.info__item {
+    margin-bottom: 20px;
+}
+
+.contact__info .info__item {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.contact__info .info__icon {
+    color: #333; /* Adjusted color */
+    font-size: 2rem; /* Adjusted font size */
+}
+
+.contact__info .info__title {
+    font-size: 1rem; /* Adjusted font size */
+}
+
+.contact__info .info__desc {
+    font-family: 'Arial', sans-serif; /* Adjusted font family */
+    font-size: 1rem; /* Adjusted font size */
+    font-weight: 500; /* Adjusted font weight */
+}
+
+.form__input-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+}
+
+.form__input-div {
+    margin-bottom: 30px;
+}
+
+.form__control {
+    border: 1px solid #ccc; /* Adjusted border color */
+    background-color: #f9f9f9; /* Adjusted background color */
+    color: #333; /* Adjusted text color */
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem; /* Adjusted font size */
+    transition: 0.3s ease;
+}
+
+.form__control:focus {
+    border-color: #007bff; /* Adjusted focus border color */
+}
+
+.textarea {
+    resize: none;
+    height: 160px;
+}
+
+.contact__button-icon {
+    font-size: 2rem; /* Adjusted font size */
+    line-height: 64px;
+    cursor: pointer;
+}
+
+.button {
+    cursor: pointer;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1400px) {
+    .container {
+        max-width: calc(100% - 180px); /* Adjusted max-width */
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .grid {
+        gap: 20px; /* Adjusted gap */
+    }
+
+    /* Adjustments for other elements as needed */
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: 720px; /* Adjusted max-width */
+    }
+
+    /* Adjustments for other elements as needed */
+}
+
+@media screen and (max-width: 768px) {
+    .home {
+        grid-template-columns: 1fr; /* Adjusted grid columns */
+        justify-items: center;
+        row-gap: 10px;
+    }
+
+    /* Adjustments for other elements as needed */
+}
+
+@media screen and (max-width: 576px) {
+    .form__input-group {
+        grid-template-columns: 1fr; /* Adjusted grid columns */
+    }
+
+    .form__input-group .form__input-div:last-child {
+        grid-column: 1/-1; /* Adjusted grid column span */
+    }
+
+    .form__input-div {
+        margin-bottom: 24px; /* Adjusted margin */
+    }
+
+    /* Adjustments for other elements as needed */
+}
+
+@media screen and (max-width: 450px) {
+    .subtitle__center {
+        margin-top: 150px; /* Adjusted margin */
+    }
+
+    /* Adjustments for other elements as needed */
+}
+
+@media screen and (max-width: 350px) {
+    .subtitle__center {
+        margin-top: 180px; /* Adjusted margin */
+    }
+
+    /* Adjustments for other elements as needed */
+}
